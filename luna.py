@@ -33,7 +33,7 @@ async def lunaQuery(query: str, user_id: int):
     resp = (await arq.luna(query, user_id)).result
     return (
         resp
-        if LANGUAGE == "tr"
+        if LANGUAGE == "en"
         else (
             await arq.translate(resp, LANGUAGE)
         ).result.translatedText
@@ -53,7 +53,7 @@ async def type_and_send(message):
 @luna.on_message(filters.command("repo") & ~filters.edited)
 async def repo(_, message):
     await message.reply_text(
-        "[Gel beni al](https://t.me/adsizkaptan)"
+        "[Gel beni al](t.me/adsizkaptan)"
         + " | [Group](t.me/kizilsancak06)",
         disable_web_page_preview=True,
     )
